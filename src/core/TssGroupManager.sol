@@ -6,7 +6,7 @@ import "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/cryptography/ECDSAUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
-import {Lib_Address} from "../../libraries/utils/Lib_Address.sol";
+import {Lib_Address} from "../utils/Lib_Address.sol";
 import "./ITssGroupManager.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
@@ -61,7 +61,6 @@ contract TssGroupManager is
         require(_threshold < _batchPublicKey.length, "threshold must less than tss member");
         for (uint256 i = 0; i < _batchPublicKey.length; i++) {
             address operator = Lib_Address.publicKeyToAddress(_batchPublicKey[i]);
-            require(IStakingSlashing(stakingSlash).isCanOperator(operator),"batch public keys has a node ,can not be operator");
         }
 
         if(inActiveTssMembers.length > 0) {

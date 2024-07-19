@@ -17,8 +17,6 @@ interface ITssGroupManager {
     function setGroupPublicKey(bytes memory _publicKey, bytes memory _groupPublicKey) external;
     function getTssGroupInfo() external returns (uint256, uint256, bytes memory, bytes[] memory);
     function getTssInactiveGroupInfo() external returns (uint256, uint256, bytes[] memory);
-    function memberJail(bytes memory _publicKey) external;
-    function memberUnJail(bytes memory _publicKey) external;
     function removeMember(bytes memory _publicKey) external;
     function getTssGroupUnJailMembers() external returns (address[] memory);
     function getTssGroupMembers() external returns (bytes[] memory);
